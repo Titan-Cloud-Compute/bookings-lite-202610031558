@@ -14,8 +14,8 @@ import { RouterLink } from '@angular/router';
             <path d="M14 24L22 32L34 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h1 class="landing-title">Enterprise Platform</h1>
-        <p class="landing-subtitle">A modern platform for your organization.</p>
+        <h1 class="landing-title">Bookings Lite</h1>
+        <p class="landing-subtitle">Simple appointment booking for providers and their clients.</p>
         <div class="landing-actions">
           <a routerLink="/login" class="btn-signin">Sign In</a>
         </div>
