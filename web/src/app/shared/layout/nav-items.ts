@@ -19,6 +19,11 @@ export const FIRM_NAV_ITEMS: NavItem[] = [
     label: 'Services',
     icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>',
   },
+  {
+    path: '/availability',
+    label: 'Availability',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v3l2 1"/></svg>',
+  },
 ];
 
 /** Entries shown to EVERY signed-in role, rendered outside the role branches. */

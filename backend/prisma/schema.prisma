@@ -54,6 +54,8 @@ model User {
   tokensConsumed RegistrationToken[] @relation("ConsumedTokens")
   passwordResetTokens PasswordResetToken[]
   services            Service[]
+  availabilityWindows AvailabilityWindow[]
+  blockedSlots        BlockedSlot[]
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -156,4 +158,29 @@ model Service {
 
   @@index([providerId])
   @@index([active])
+}
+
+// Story: set-availability — a provider's recurring weekly hours (UTC minutes
+// from midnight) and one-off blocked time ranges.
+model AvailabilityWindow {
+  id          String   @id @default(cuid())
+  providerId  String
+  provider    User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  dayOfWeek   Int
+  startMinute Int
+  endMinute   Int
+  createdAt   DateTime @default(now())
+
+  @@index([providerId])
+}
+
+model BlockedSlot {
+  id         String   @id @default(cuid())
+  providerId String
+  provider   User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  startsAt   DateTime
+  endsAt     DateTime
+  createdAt  DateTime @default(now())
+
+  @@index([providerId])
 }
