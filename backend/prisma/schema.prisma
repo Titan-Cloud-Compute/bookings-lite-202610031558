@@ -53,6 +53,7 @@ model User {
   tokensCreated  RegistrationToken[] @relation("CreatedTokens")
   tokensConsumed RegistrationToken[] @relation("ConsumedTokens")
   passwordResetTokens PasswordResetToken[]
+  services            Service[]
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -136,4 +137,23 @@ model ColossusAccount {
   updatedAt    DateTime @updatedAt @map("updated_at")
 
   @@map("colossus_accounts")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Services (Story: create-service) — offered by a provider, booked by clients
+// ─────────────────────────────────────────────────────────────────────────────
+
+model Service {
+  id              String   @id @default(cuid())
+  providerId      String
+  provider        User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  name            String
+  durationMinutes Int
+  priceCents      Int
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([providerId])
+  @@index([active])
 }

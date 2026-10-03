@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { SERVICES_ROUTES } from './services/services.routes';
 
 /**
  * Feature route registry.
@@ -14,4 +15,4 @@ import { Routes } from '@angular/router';
  *
  * Or add routes here directly.
  */
-export const FEATURE_ROUTES: Routes = [];
+export const FEATURE_ROUTES: Routes = [...SERVICES_ROUTES];
